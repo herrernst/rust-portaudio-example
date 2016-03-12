@@ -1,3 +1,7 @@
+#![feature(alloc_system)]
+
+extern crate alloc_system;
+
 extern crate portaudio;
 
 use std::thread::sleep_ms;
