@@ -30,19 +30,19 @@ fn demo() -> portaudio::PaResult
     }
 
     stream.as_mut().unwrap().write(&buffer).unwrap();
-    stream.as_mut().unwrap().stop().unwrap(); //not changing anything
-//    drop(stream); //this seems to be called when stream goes out of scope
+    stream.as_mut().unwrap().stop().unwrap();
+
     stream = None;
 
-    sleep_ms(10000); //only works if called drop before
+    sleep_ms(1000);
     Ok(())
 }
 
 fn main()
 {
     portaudio::initialize().unwrap();
-    println!("{:?}", demo());
-//    sleep_ms(10000); //works
+    println!("demo result {:?}", demo());
+    sleep_ms(1000);
     println!("terminate");
     portaudio::terminate().unwrap();
 }
